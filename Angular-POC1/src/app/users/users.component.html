@@ -1,0 +1,42 @@
+<h3 class="text-center mb-5">Angular POC 1</h3>
+<h5>User Details</h5>
+<table class="table table-bordered width60p">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-dark mb-2" (click)="checkCondition = !checkCondition">
+  {{ checkCondition ? "Toggle Paragraph" : "Toggle Paragraph" }}
+</button>
+<div>
+  <ng-container
+    class="paragraph-detail"
+    *ngIf="checkCondition; else showParagraphTemplate"
+  >
+    <p>render the content of pargraph when condition is true.</p>
+  </ng-container>
+
+  <ng-template #showParagraphTemplate>
+    <p class="paragraph-body">
+      What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry. Lorem Ipsum has been the industry's standard dummy
+      text ever since the 1500s, when an unknown printer took a galley of type
+      and scrambled it to make a type specimen book. It has survived not only
+      five centuries, but also the leap into electronic typesetting, remaining
+      essentially unchanged. It was popularised in the 1960s with the release of
+      Letraset sheets containing Lorem Ipsum passages, and more recently with
+      desktop publishing software like Aldus PageMaker including versions of
+      Lorem Ipsum.
+    </p>
+  </ng-template>
+</div>
